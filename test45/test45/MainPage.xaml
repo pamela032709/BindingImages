@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:d="http://xamarin.com/schemas/2014/forms/design" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="test45.MainPage">
+    <StackLayout>
+      <ListView x:Name="listview"
+
+HasUnevenRows="True"
+ItemsSource="{Binding MyItemsSource}">
+
+<ListView.ItemTemplate>
+<DataTemplate>
+<Frame BackgroundColor="ForestGreen" Margin="5">
+    <StackLayout>
+    <Label Text="{Binding Name}"></Label>
+<Image
+Source="{Binding ColorImage}">
+<Image.GestureRecognizers>
+<TapGestureRecognizer
+Command="{Binding Source={x:Reference listview}, Path=BindingContext.command}" CommandParameter="{Binding .} "
+NumberOfTapsRequired="1" />
+</Image.GestureRecognizers>
+</Image>
+        </StackLayout>
+</Frame>
+</DataTemplate>
+</ListView.ItemTemplate>
+</ListView>
+    </StackLayout>
+</ContentPage>
